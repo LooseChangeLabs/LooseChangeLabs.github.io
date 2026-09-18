@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Loose Change Labs</title>
+<meta name="description" content="Small, tested tools — built by actually running the ventures they came out of.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --paper:#EEEBE2;
+    --paper-raised:#F7F5EE;
+    --ink:#23261F;
+    --ink-muted:#5B584C;
+    --hairline:#D9D5C8;
+    --accent:#A9683B;
+    --accent-ink:#7A4A29;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#17160F;
+      --paper-raised:#1E1D15;
+      --ink:#E9E5D8;
+      --ink-muted:#A39D89;
+      --hairline:#33312A;
+      --accent:#CB8E56;
+      --accent-ink:#E6B685;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#17160F;
+    --paper-raised:#1E1D15;
+    --ink:#E9E5D8;
+    --ink-muted:#A39D89;
+    --hairline:#33312A;
+    --accent:#CB8E56;
+    --accent-ink:#E6B685;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; }
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:"IBM Plex Sans", system-ui, sans-serif;
+    padding-inline:20px;
+  }
+  .wrap{ max-width:880px; margin:0 auto; }
+
+  header.top{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-block:22px; border-bottom:1px solid var(--hairline);
+  }
+  .wordmark{ font-family:"Source Serif 4", Georgia, serif; font-weight:600; font-size:1.15rem; }
+  .wordmark span{ color:var(--accent-ink); }
+  nav a{ color:var(--ink-muted); text-decoration:none; font-size:0.85rem; margin-left:20px; }
+  nav a:hover{ color:var(--ink); }
+
+  .hero{ padding-block:56px 40px; max-width:640px; }
+  .eyebrow{
+    font-family:"IBM Plex Mono", monospace; font-size:0.75rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--accent-ink); margin-bottom:14px;
+  }
+  h1{
+    font-family:"Source Serif 4", Georgia, serif; font-weight:600;
+    font-size:clamp(1.9rem, 4vw, 2.6rem); line-height:1.15; margin:0 0 16px; text-wrap:balance;
+  }
+  .lede{ font-size:1.05rem; line-height:1.6; color:var(--ink-muted); max-width:56ch; }
+
+  section{ padding-block:36px; border-top:1px solid var(--hairline); }
+  h2{ font-family:"Source Serif 4", Georgia, serif; font-weight:600; font-size:1.4rem; margin:0 0 8px; }
+  .section-sub{ color:var(--ink-muted); font-size:0.95rem; margin:0 0 28px; max-width:56ch; line-height:1.5; }
+
+  .products{ display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; }
+  .card{
+    background:var(--paper-raised); border:1px solid var(--hairline); border-radius:6px;
+    padding:22px; display:flex; flex-direction:column; gap:14px;
+  }
+  .card h3{ font-family:"Source Serif 4", Georgia, serif; font-size:1.15rem; margin:0; }
+  .card p{ font-size:0.88rem; line-height:1.55; color:var(--ink-muted); margin:0; flex:1; }
+  .skills{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:4px; }
+  .skills li{
+    font-family:"IBM Plex Mono", monospace; font-size:0.74rem; color:var(--ink-muted);
+    padding-left:14px; position:relative;
+  }
+  .skills li::before{ content:"·"; position:absolute; left:2px; color:var(--accent); }
+  .card-foot{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding-top:12px; border-top:1px solid var(--hairline);
+  }
+  .price{ font-family:"IBM Plex Mono", monospace; font-weight:500; font-size:1.05rem; }
+  .buy{
+    font-family:"IBM Plex Sans", sans-serif; font-weight:600; font-size:0.85rem;
+    color:var(--paper); background:var(--accent-ink); text-decoration:none;
+    padding:8px 16px; border-radius:99px; white-space:nowrap;
+  }
+  .buy:hover{ background:var(--accent); }
+
+  .support-grid{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  .support-grid h3{ font-family:"IBM Plex Sans"; font-weight:600; font-size:0.95rem; margin:0 0 6px; }
+  .support-grid p, .support-grid a{ font-size:0.9rem; line-height:1.6; color:var(--ink-muted); }
+  .support-grid a{ color:var(--accent-ink); }
+
+  footer{
+    padding-block:28px 40px; border-top:1px solid var(--hairline);
+    font-family:"IBM Plex Mono", monospace; font-size:0.75rem; color:var(--ink-muted);
+    display:flex; flex-wrap:wrap; gap:8px 20px; justify-content:space-between;
+  }
+  footer a{ color:var(--ink-muted); }
+
+  @media (max-width:720px){
+    .products{ grid-template-columns:1fr; }
+    .support-grid{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="wordmark">Loose<span>Change</span>Labs</div>
+    <nav>
+      <a href="#products">Products</a>
+      <a href="#support">Support</a>
+      <a href="https://github.com/LooseChangeLabs">GitHub</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div class="eyebrow">Claude Code skills, tested in production</div>
+    <h1>Small tools, built by actually running the thing they're for.</h1>
+    <p class="lede">Every skill we sell came out of a real, live operating problem — not a
+      brainstorm. We build, test, and ship digital tools ourselves before we package them.</p>
+  </div>
+
+  <section id="products">
+    <h2>Products</h2>
+    <p class="section-sub">Each is five Claude Code skills as a single download. Drop the ones
+      you want into <code>.claude/skills/</code> — no build step, no dependencies.</p>
+    <div class="products">
+
+      <div class="card">
+        <h3>Agent Ops Kit</h3>
+        <p>Operating patterns for running an autonomous Claude Code agent on a real task — a
+          budget, an environment, a standing permission.</p>
+        <ul class="skills">
+          <li>autonomy-contract</li>
+          <li>ledger-dashboard</li>
+          <li>rootless-apt-install</li>
+          <li>mcp-connection-debug</li>
+          <li>memory-hygiene</li>
+        </ul>
+        <div class="card-foot">
+          <span class="price">$19</span>
+          <a class="buy" href="https://buy.stripe.com/test_dRm5kv4cKaSn63S1qQeAg01">Buy</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Rootless Sandbox Toolkit</h3>
+        <p>Getting real dev tooling working with no root access — containers, CI runners,
+          locked-down sandboxes — and the class of bug that only shows up outside your terminal.</p>
+        <ul class="skills">
+          <li>rootless-node-install</li>
+          <li>container-env-debug</li>
+          <li>headless-browser-verify</li>
+          <li>dependency-pin-audit</li>
+          <li>ci-secrets-hygiene</li>
+        </ul>
+        <div class="card-foot">
+          <span class="price">$19</span>
+          <a class="buy" href="https://buy.stripe.com/test_bJe14f7oWaSncsg8TieAg02">Buy</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Ship Solo Ops Kit</h3>
+        <p>The business-decision layer for shipping solo — pricing, killing a bad idea cleanly,
+          what stays private, and getting paid without a full platform.</p>
+        <ul class="skills">
+          <li>price-from-comps</li>
+          <li>kill-criteria-framework</li>
+          <li>public-vs-private-surface</li>
+          <li>platform-free-digital-delivery</li>
+          <li>one-time-vs-subscription</li>
+        </ul>
+        <div class="card-foot">
+          <span class="price">$19</span>
+          <a class="buy" href="https://buy.stripe.com/test_00w14f5gO4tZak8c5ueAg03">Buy</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="support">
+    <h2>Support</h2>
+    <div class="support-grid">
+      <div>
+        <h3>Questions, refunds</h3>
+        <p>Email <a href="mailto:matt.putman+loosechangelabs@gmail.com">matt.putman+loosechangelabs@gmail.com</a>
+          — not happy with a purchase, tell us why and we'll refund it, no argument.</p>
+      </div>
+      <div>
+        <h3>License</h3>
+        <p>Personal/single-team use per purchase. Full terms ship inside every download as
+          <code>LICENSE-COMMERCIAL.md</code>.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Loose Change Labs</span>
+    <a href="https://github.com/LooseChangeLabs">github.com/LooseChangeLabs</a>
+  </footer>
+
+</div>
+</body>
+</html>
