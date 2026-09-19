@@ -78,6 +78,18 @@
   h2{ font-family:"Source Serif 4", Georgia, serif; font-weight:600; font-size:1.4rem; margin:0 0 8px; }
   .section-sub{ color:var(--ink-muted); font-size:0.95rem; margin:0 0 28px; max-width:56ch; line-height:1.5; }
 
+  .bundle{
+    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+    background:var(--paper-raised); border:1px solid var(--accent); border-radius:6px;
+    padding:18px 22px; margin-bottom:16px;
+  }
+  .bundle-info{ display:flex; flex-direction:column; gap:2px; }
+  .bundle-info b{ font-family:"Source Serif 4", Georgia, serif; font-size:1.05rem; font-weight:600; }
+  .bundle-info span{ font-size:0.85rem; color:var(--ink-muted); }
+  .bundle-price{ display:flex; align-items:center; gap:12px; }
+  .bundle-was{ font-family:"IBM Plex Mono", monospace; font-size:0.85rem; color:var(--ink-muted); text-decoration:line-through; }
+  .bundle-now{ font-family:"IBM Plex Mono", monospace; font-size:1.15rem; font-weight:500; color:var(--accent-ink); }
+
   .products{ display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; }
   .card{
     background:var(--paper-raised); border:1px solid var(--hairline); border-radius:6px;
@@ -145,6 +157,19 @@
     <h2>Products</h2>
     <p class="section-sub">Each is five Claude Code skills as a single download. Drop the ones
       you want into <code>.claude/skills/</code> — no build step, no dependencies.</p>
+
+    <div class="bundle">
+      <div class="bundle-info">
+        <b>Complete Bundle — all 15 skills</b>
+        <span>Everything below, one download, one purchase.</span>
+      </div>
+      <div class="bundle-price">
+        <span class="bundle-was">$27</span>
+        <span class="bundle-now">$24</span>
+        <a class="buy" href="https://buy.stripe.com/4gMfZ9fLN1yAbM53DudMI0b">Buy</a>
+      </div>
+    </div>
+
     <div class="products">
 
       <div class="card">
@@ -159,8 +184,8 @@
           <li>memory-hygiene</li>
         </ul>
         <div class="card-foot">
-          <span class="price">$19</span>
-          <a class="buy" href="https://buy.stripe.com/7sY00bczB0uw4jD6PGdMI04">Buy</a>
+          <span class="price">$9</span>
+          <a class="buy" href="https://buy.stripe.com/cNi6ozartelm4jD0ridMI08">Buy</a>
         </div>
       </div>
 
@@ -176,8 +201,8 @@
           <li>ci-secrets-hygiene</li>
         </ul>
         <div class="card-foot">
-          <span class="price">$19</span>
-          <a class="buy" href="https://buy.stripe.com/00w4gr8jla5603n7TKdMI05">Buy</a>
+          <span class="price">$9</span>
+          <a class="buy" href="https://buy.stripe.com/4gMeV57fhfpqeYhca0dMI09">Buy</a>
         </div>
       </div>
 
@@ -193,8 +218,8 @@
           <li>one-time-vs-subscription</li>
         </ul>
         <div class="card-foot">
-          <span class="price">$19</span>
-          <a class="buy" href="https://buy.stripe.com/aFaaEPeHJcdeg2l8XOdMI06">Buy</a>
+          <span class="price">$9</span>
+          <a class="buy" href="https://buy.stripe.com/5kQ3cn435dhig2l6PGdMI0a">Buy</a>
         </div>
       </div>
 
